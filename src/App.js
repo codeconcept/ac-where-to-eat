@@ -12,6 +12,15 @@ class App extends React.Component {
   }
   handleSubmit(place) {
     console.log("App.js / handleSubmit", place);
+    this.setState({
+      places: [
+        ...this.state.places,
+        {
+          id: Date.now(),
+          name: place
+        }
+      ]
+    });
   }
   render() {
     return (
