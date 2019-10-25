@@ -17,6 +17,7 @@ class SuggestionForm extends React.Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.onPlaceSubmit(this.state.place);
+    this.setState({ place: "" });
   }
   render() {
     return (
