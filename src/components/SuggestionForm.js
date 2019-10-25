@@ -7,17 +7,22 @@ class SuggestionForm extends React.Component {
       place: ""
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(evt) {
     this.setState({
       place: evt.target.value
     });
   }
+  handleSubmit(evt) {
+    evt.preventDefault();
+    this.props.onPlaceSubmit(this.state.place);
+  }
   render() {
     return (
       <div>
         <div>Suggérer un endroit où aller déjeuner</div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.place}
