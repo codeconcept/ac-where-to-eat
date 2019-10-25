@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import SuggestionForm from "./components/SuggestionForm";
+import PlaceList from "./components/PlaceList";
 
 class App extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class App extends React.Component {
       <div className="App">
         <h3>Dijon Déjeune</h3>
         <SuggestionForm onPlaceSubmit={this.handleSubmit} />
+        <PlaceList places={this.state.places} foo="bar" />
       </div>
     );
   }
