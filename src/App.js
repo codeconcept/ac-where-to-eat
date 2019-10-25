@@ -23,12 +23,16 @@ class App extends React.Component {
       ]
     });
   }
+  handleVote(place) {
+    console.log("App.js / handleVote", place);
+  }
   render() {
+    const { places } = this.state;
     return (
       <div className="App">
         <h3>Dijon Déjeune</h3>
         <SuggestionForm onPlaceSubmit={this.handleSubmit} />
-        <PlaceList places={this.state.places} foo="bar" />
+        <PlaceList places={places} onVote={this.handleVote} />
       </div>
     );
   }
