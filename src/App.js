@@ -10,6 +10,7 @@ class App extends React.Component {
       places: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleVote = this.handleVote.bind(this);
   }
   handleSubmit(place) {
     console.log("App.js / handleSubmit", place);
@@ -18,13 +19,17 @@ class App extends React.Component {
         ...this.state.places,
         {
           id: Date.now(),
-          name: place
+          name: place,
+          vote: 0
         }
       ]
     });
   }
   handleVote(place) {
     console.log("App.js / handleVote", place);
+    place = { ...place, vote: place.vote + 1 };
+    const places = this.state.places.map(p => (p.id !== place.id ? p : place));
+    this.setState({ places });
   }
   render() {
     const { places } = this.state;
