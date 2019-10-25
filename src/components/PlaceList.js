@@ -1,11 +1,11 @@
 import React from "react";
+import Place from "./Place";
 
 const PlaceList = props => {
-  console.log(props);
   return (
     <div>
       {props.places.map(p => (
-        <div key={p.id}>{p.name}</div>
+        <Place data={p} key={p.id} />
       ))}
     </div>
   );
