@@ -20,14 +20,14 @@ class App extends React.Component {
         {
           id: Date.now(),
           name: place,
-          vote: 0
+          votes: 0
         }
       ]
     });
   }
   handleVote(place) {
     console.log("App.js / handleVote", place);
-    place = { ...place, vote: place.vote + 1 };
+    place = { ...place, votes: place.votes + 1 };
     const places = this.state.places.map(p => (p.id !== place.id ? p : place));
     this.setState({ places });
   }
