@@ -1,17 +1,34 @@
-import React from 'react';
+import React from "react";
 
 class SuggestionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      places: []
-    }
+      place: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
   }
-  render() { 
+  handleChange(evt) {
+    this.setState({
+      place: evt.target.value
+    });
+  }
+  render() {
     return (
-      <div>Form works!</div>
+      <div>
+        <div>Suggérer un endroit où aller déjeuner</div>
+        <form>
+          <input
+            type="text"
+            value={this.state.place}
+            onChange={this.handleChange}
+            onBlur={this.handleChange}
+            placeholder="nom du restaurant / lieu"
+          />
+        </form>
+      </div>
     );
   }
 }
- 
+
 export default SuggestionForm;
